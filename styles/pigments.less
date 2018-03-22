@@ -69,6 +69,19 @@ atom-text-editor {
     background: transparent !important;
     color: inherit !important;
   }
+  
+  .pigments-native-text {
+    position: relative;
+    background-color: @syntax-background-color;
+    border-radius: 3px;
+    color: @syntax-text-color;
+    text-shadow: 0.5px 0.5px @syntax-text-color;
+  }
+
+  .pigments-native-text-in-selection {
+    background: transparent !important;
+    text-shadow: 0.5px 0.5px @syntax-text-color;
+  }
 
   .pigments-native-underline .region,
   .pigments-native-underline-in-selection .region {
