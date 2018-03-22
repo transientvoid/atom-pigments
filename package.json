@@ -172,6 +172,7 @@
       "default": "native-background",
       "enum": [
         "native-background",
+        "native-text",
         "native-underline",
         "native-outline",
         "native-dot",
