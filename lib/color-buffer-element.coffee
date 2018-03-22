@@ -1,4 +1,4 @@
-
+Color = require '../lib/color'
 {registerOrUpdateElement, EventsDelegation} = require 'atom-utils'
 
 [Emitter, CompositeDisposable] = []
@@ -181,6 +181,16 @@ class ColorBufferElement extends HTMLElement
           linear-gradient(to bottom, #{marker.color.toCSS()} 0%, #{marker.color.toCSS()} 100%),
           url(atom://pigments/resources/transparent-background.png);
         color: #{if l > 0.43 then 'black' else 'white'};
+      }
+      """
+    else if type is 'native-text'
+      style.innerHTML = """
+      .#{className} {
+        background-image:
+          linear-gradient(to bottom, #{(new Color(0,0,0,a)).toCSS()} 0%, #{(new Color(0,0,0,a)).toCSS()} 100%),
+          url(atom://pigments/resources/transparent-background.png);
+        text-shadow: #{if l > 0.04 then 'none'} !important;
+        color: #{if a != 1 and a > 0.7 and l > 0.94 then 'black' else marker.color.transparentize(1).toCSS()} !important;
       }
       """
     else if type is 'native-underline'
